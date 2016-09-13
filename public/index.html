@@ -2,12 +2,45 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>人生一度きり</title>
+    <base href="/"><link rel="shortcut icon" href="/assets/images/www/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/www/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="stylesheet" href="/assets/css/style.css?1473744000796"><link rel="stylesheet" href="https://storage.googleapis.com/portal-widget/www/top/www3/css/style.css">
+    <title>Favclip Station</title>
     <style media="screen">
       body {
         font-family: Roboto, Arial, sans-serif;
         background: #ECEFF1;
         color: rgba(0,0,0,0.87);
+      }
+
+      dl.search2{
+      	position:relative;
+      }
+      dl.search2 dt{
+      	margin-right:105px;
+      	padding:8px;
+      	background-color:#fff;
+      	border:1px solid #aaa;
+      }
+      dl.search2 dt input{
+      	width:100%;
+      	height:24px;
+      	line-height:24px;
+      	background:none;
+      	border:none;
+      }
+      dl.search2 dd{
+      	position:absolute;
+      	top:0;
+      	right:0;
+      }
+      dl.search2 dd button{
+      	display:block;
+      	width:100px;
+      	height:42px;
+      	color:#fff;
+      	line-height:40px;
+      	text-align:center;
+      	background-color:#f66;
+      	border:1px solid #c66;
       }
 
       a {
@@ -55,15 +88,44 @@
         font-size: 14px;
         box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
       }
+
     </style>
   </head>
   <body>
     <div id="message">
-      <h1>Welcome to Firebase Hosting</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <ul>
-        <li><a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a></li>
-      </ul>
+    <h1>favclip station</h1>
+
+      <form action="/" name="search2" method="post">
+      	<dl class="search2">
+      		<dt><input type="text" name="search" value="" placeholder="Search" /></dt>
+      		<dd><button>Search</button></dd>
+      	</dl>
+      </form>
+
+      <center>
+      <table border="0">
+        <tr>
+          <th width="300" height="80" bgcolor="#EE0000"><font color="#FFFFFF">ALL</font></th>
+          <th width="300" height="80" bgcolor="#90EE90"><font color="#FFFFFF">エンタメ</font></th>
+        </tr>
+        <tr>
+          <th width="300" height="80" bgcolor="#800080"><font color="#FFFFFF">IT</font></th>
+          <th width="300" height="80" bgcolor="#FFA500"><font color="#FFFFFF">ファッション</font></th>
+        </tr>
+        <tr>
+          <th width="300" height="80" bgcolor="#708090"><font color="#FFFFFF">ニュース</font></th>
+          <th width="300" height="80" bgcolor="#FFC0CB"><font color="#FFFFFF">グルメ</font></th>
+        </tr>
+        <tr>
+          <th width="300" height="80" bgcolor="#1E90FF"><font color="#FFFFFF">スポーツ</font></th>
+          <th width="300" height="80" bgcolor="#87CEEB"><font color="#FFFFFF">ホビー</font></th>
+        </tr>
+      </table>
+    </center>
     </div>
+
+    <div>
+    </div>
+
   </body>
 </html>
