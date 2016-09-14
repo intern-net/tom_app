@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <base href="/"><link rel="shortcut icon" href="/assets/images/www/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/www/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="stylesheet" href="/assets/css/style.css?1473744000796"><link rel="stylesheet" href="https://storage.googleapis.com/portal-widget/www/top/www3/css/style.css">
+<!-- saved from url=(0032)http://localhost:5000/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!--<base href="/">--><base href="."><link rel="shortcut icon" href="http://localhost:5000/assets/images/www/favicon.ico"><link rel="apple-touch-icon" href="http://localhost:5000/assets/images/www/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="stylesheet" href="./Favclip Station_files/style.css"><link rel="stylesheet" href="./Favclip Station_files/style(1).css">
     <title>Favclip Station</title>
-    <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="./Favclip Station_files/firebase.js"></script>
+    <script src="./Favclip Station_files/jquery-3.1.0.min.js"></script>
     <!-- <script>
       // Initialize Firebase
       var config = {
@@ -74,15 +74,15 @@
 
     </style>
   </head>
-  <center>
+  <body><center>
 
-  <body>
+  
     <div id="message">
     <h1>favclip station</h1>
 
       <center>
       <table rules="all" border="0">
-        <tr>
+        <tbody><tr>
           <th width="300" height="80" bgcolor="#EE0000"><font color="#FFFFFF" class="g_btn" data-id="all">ALL</font></th>
           <th width="300" height="80" bgcolor="#90EE90"><font color="#FFFFFF" class="g_btn" data-id="entertainment">エンタメ</font></th>
         </tr>
@@ -98,30 +98,30 @@
           <th width="300" height="80" bgcolor="#1E90FF"><font color="#FFFFFF" class="g_btn" data-id="sports">スポーツ</font></th>
           <th width="300" height="80" bgcolor="#87CEEB"><font color="#FFFFFF" class="g_btn" data-id="hobby">ホビー</font></th>
         </tr>
-      </table>
+      </tbody></table>
 
         <div id="player_controller">
 
          <div id="articleInfo">
-           <div id="genreTitle">no genre yet</div>
-           <div id="articleTitle">no article yet</div>
+           <div id="genreTitle">ALL</div>
+           <div id="articleTitle">グーっとお腹が鳴るのは恥ずかしい！ 空腹を感じなくさせる方法</div>
          </div>
 
         <div id="playerall">
           <div id="btn_player">
             <!-- 戻るボタン -->
-            <img width="50" height="50" src="./images/back.jpg" alt="" id="back" class="btnPlayer">
+            <img width="50" height="50" src="./Favclip Station_files/back.jpg" alt="" id="back" class="btnPlayer">
              <!-- 再生ボタン -->
-            <img width="50" height="50" src="./images/Start.jpg" alt="" id="play" class="btnPlayer">
+            <img width="50" height="50" src="./Favclip Station_files/Start.jpg" alt="" id="play" class="btnPlayer">
             <!-- 次へボタン -->
-            <img width="50" height="50" src="./images/front.png" alt="" id="next" class="btnPlayer">
+            <img width="50" height="50" src="./Favclip Station_files/front.png" alt="" id="next" class="btnPlayer">
           </div>
-          <audio id="articleSound" src="audio/hoge.mp4" type="audio/wav"/></audio>
+          <audio src="audio/sample.wav" controls=""></audio>
         </div>
 
       </div>
 
-  </div>
+  </center></div>
 
 <!-- ここからjsのコード -->
 <script>
@@ -132,17 +132,14 @@
   function chbtn(){
     if(cnt % 2 == 0){
       $("#play").attr('src', 'images/stop.png');
-      $("#articleSound")[0].play()
     }else{
       $("#play").attr('src', 'images/Start.jpg');
-      $("#articleSound")[0].pause()
     }
     cnt++;
   };
 
   // ジャンルのボタンを押すと表示が切り替わる
   $(".g_btn").on("click", function(ev) {
-    cnt = 1;
     a_cnt = 0;
     var elem = $(ev.currentTarget);
     curGenr = elem.data('id');
@@ -150,13 +147,11 @@
     var name = elem.text();
     console.log(id, name);
     $("#genreTitle").text(name);
-    chbtn();
   });
 
   // 取得した記事のタイトルを表示
   function display_t(){
     $("#articleTitle").text(allArticleSearch[curGenr][a_cnt]['title']);
-    $("#articleSound").attr('src', allArticleSearch[curGenr][a_cnt]['voiceUrl']);
   };
   $(".g_btn").on("click", display_t);
 
@@ -168,10 +163,6 @@
   $("#next").on("click", function(){
     a_cnt++;
     $("#articleTitle").text(allArticleSearch[curGenr][a_cnt]['title']);
-    $("#articleSound").attr('src', allArticleSearch[curGenr][a_cnt]['voiceUrl']);
-    if(cnt % 2 != 0){
-      $("#articleSound")[0].play();
-    }
   });
   // 戻るを押すと前の記事のタイトルが出る
   // クリックするとカウントが減少
@@ -180,17 +171,14 @@
     }else{
       a_cnt--;
       $("#articleTitle").text(allArticleSearch[curGenr][a_cnt]['title']);
-        $("#articleSound").attr('src', allArticleSearch[curGenr][a_cnt]['voiceUrl']);
-        if(cnt % 2 != 0){
-          $("#articleSound")[0].play();
-        }
     }
   });
 
 </script>
 
-<script src="js/source.js"></script>
+<script src="./Favclip Station_files/source.js"></script>
 
-  </body>
+  
 </center>
-</html>
+
+</body></html>

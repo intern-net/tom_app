@@ -116,7 +116,7 @@
             <!-- 次へボタン -->
             <img width="50" height="50" src="./images/front.png" alt="" id="next" class="btnPlayer">
           </div>
-          <audio id="articleSound" src="audio/hoge.mp4" type="audio/wav"/></audio>
+          <audio src="audio/sample.wav" controls></audio>
         </div>
 
       </div>
@@ -132,17 +132,14 @@
   function chbtn(){
     if(cnt % 2 == 0){
       $("#play").attr('src', 'images/stop.png');
-      $("#articleSound")[0].play()
     }else{
       $("#play").attr('src', 'images/Start.jpg');
-      $("#articleSound")[0].pause()
     }
     cnt++;
   };
 
   // ジャンルのボタンを押すと表示が切り替わる
   $(".g_btn").on("click", function(ev) {
-    cnt = 1;
     a_cnt = 0;
     var elem = $(ev.currentTarget);
     curGenr = elem.data('id');
@@ -150,13 +147,11 @@
     var name = elem.text();
     console.log(id, name);
     $("#genreTitle").text(name);
-    chbtn();
   });
 
   // 取得した記事のタイトルを表示
   function display_t(){
     $("#articleTitle").text(allArticleSearch[curGenr][a_cnt]['title']);
-    $("#articleSound").attr('src', allArticleSearch[curGenr][a_cnt]['voiceUrl']);
   };
   $(".g_btn").on("click", display_t);
 
@@ -168,10 +163,6 @@
   $("#next").on("click", function(){
     a_cnt++;
     $("#articleTitle").text(allArticleSearch[curGenr][a_cnt]['title']);
-    $("#articleSound").attr('src', allArticleSearch[curGenr][a_cnt]['voiceUrl']);
-    if(cnt % 2 != 0){
-      $("#articleSound")[0].play();
-    }
   });
   // 戻るを押すと前の記事のタイトルが出る
   // クリックするとカウントが減少
@@ -180,10 +171,6 @@
     }else{
       a_cnt--;
       $("#articleTitle").text(allArticleSearch[curGenr][a_cnt]['title']);
-        $("#articleSound").attr('src', allArticleSearch[curGenr][a_cnt]['voiceUrl']);
-        if(cnt % 2 != 0){
-          $("#articleSound")[0].play();
-        }
     }
   });
 
