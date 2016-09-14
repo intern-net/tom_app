@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ここはテスト用</title>
+    <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB6lK6WXpMD1DcCfMFe9_L2qIhh3qR5FrU",
+        authDomain: "tomapp-579d5.firebaseapp.com",
+        databaseURL: "https://tomapp-579d5.firebaseio.com",
+        storageBucket: "tomapp-579d5.appspot.com",
+        messagingSenderId: "183920301630"
+      };
+      firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+  <h1>テストページ最初の文字列</h1>
+
+  <img width="50" height="50" src="images/Start.jpg" alt="" id="img1">
+
+  <div id="no1">id:no1</div>
+  <div id="no2" class="c1"><a href="" id="no2_url">id:no2</a></div>
+
+  <div class="c1">class C1</div>
+
+  <button id="btnRefresh">書き換えなさい</button>
+
+  <script>
+    var cnt = 0;
+    var cnt2 = 0;
+    //CHANGE images
+    function rewrite2(){
+      if(cnt2 % 2 == 0){
+        $("#img1").attr('src', 'images/stop.png');
+      }else{
+        $("#img1").attr('src', 'images/Start.jpg');
+      }
+      cnt2++;
+    };
+
+    function rewrite3( val ){
+
+      console.log( val["data"][0] );
+      console.log( val["data"][0]["title"] );
+      console.log( val["data"][0]["url"] );
+      //表示する文字列を作る
+      var title = val['data'][0].title;
+      //a タグを作る
+      var aTag = $("<a>");
+      aTag.text( title );
+      aTag.attr( "href", val['data'][0].url);
+      //対象のDOMに突っ込む
+      $("#no1").text("");
+      aTag.appendTo( $("#no1"))
+    };
+
+    function rewrite4( val ){
+      $("#no2_url").attr("href", val['data'][1].url)
+      $("#no2_url").text(val['data'][1].title)
+    };
+
+
+    function rewrite(){
+      $("#no1").text("最終日no1やで")
+      $(".c1").text("class1やでー！ cnt:"+cnt)
+      $("#no2").text("最終日no2やで")
+      cnt++;
+    };
+
+    $("#btnRefresh").on("click", rewrite);
+    $("#img1").on("click", rewrite2);
+
+    $.getJSON("http://localhost:5000/dummy.json", rewrite4);
+  </script>
+
+</body>
+</html>

@@ -5,6 +5,7 @@
     <base href="/"><link rel="shortcut icon" href="/assets/images/www/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/www/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="stylesheet" href="/assets/css/style.css?1473744000796"><link rel="stylesheet" href="https://storage.googleapis.com/portal-widget/www/top/www3/css/style.css">
     <title>Favclip Station</title>
     <style media="screen">
+
       body {
         font-family: Roboto, Arial, sans-serif;
         background: #ECEFF1;
@@ -91,6 +92,7 @@
 
     </style>
   </head>
+  <center>
   <body>
     <div id="message">
     <h1>favclip station</h1>
@@ -105,8 +107,8 @@
       <center>
       <table rules="all" border="0">
         <tr>
-          <th width="300" height="80" bgcolor="#EE0000"><a target="_blank" href="https://www.google.co.jp/"><font color="#FFFFFF">ALL</a></th>
-          <th width="300" height="80" bgcolor="#90EE90"><a target="_blank" href="https://www.google.co.jp/"><font color="#FFFFFF">エンタメ</a></font></th>
+          <th width="300" height="80" bgcolor="#EE0000"><font color="#FFFFFF">ALL</font></th>
+          <th width="300" height="80" bgcolor="#90EE90"><font color="#FFFFFF">エンタメ</font></th>
         </tr>
         <tr>
           <th width="300" height="80" bgcolor="#800080"><a target="_blank" href="https://www.google.co.jp/"><font color="#FFFFFF">IT</a></font></th>
@@ -121,17 +123,40 @@
           <th width="300" height="80" bgcolor="#87CEEB"><a target="_blank" href="https://www.google.co.jp/"><font color="#FFFFFF">ホビー</a></font></th>
         </tr>
       </table>
-    </center>
+
+        <div id="player_controller">
+         <div id="articleInfo">
+           <div id="genreTitle">no genre yet</div>
+           <div id="articleTitle">no article yet</div>
+         </div>
+
+        <div id="playerall">
+          <div id="btn_player">
+            <img width="50" height="50" src="./images/back.jpg" alt="" id="back" class="btnPlayer">
+            <img width="50" height="50" src="./images/Start.jpg" alt="" id="play" class="btnPlayer">
+            <img width="50" height="50" src="./images/front.png" alt="" id="next" class="btnPlayer">
+          </div>
+          <audio src="audio/sample.wav" controls></audio>
+        </div>
+
+      </div>
+
+
+
+
   </div>
 
-  <div id="message">
+  <!-- <div id="message">
     <center>
-      <audio src="audio/sample.wav" preload="none" onclick="playthis(0);" controls="controls"></audio>
+      <audio src="audio/sample.wav" controls></audio> -->
       <!-- <img width="50" height="50" src="./images/back.jpg">
       <img width="50" height="50" src="./images/Start.jpg">
       <img width="50" height="50" src="./images/front.png"> -->
-    </center>
-  </div>
+    <!-- </center>
+  </div> -->
+
+<script src="js/main.js"></script>
 
   </body>
+</center>
 </html>

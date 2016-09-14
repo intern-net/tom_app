@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ここはテスト用2</title>
+    <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        authDomain: "favst-dojo.firebaseapp.com",
+        databaseURL: "https://favst-dojo.firebaseio.com",
+        storageBucket: "favst-dojo.appspot.com",
+        messagingSenderId: "732756833582"
+      };
+      firebase.initializeApp(config);
+
+      // ここから本処理
+      var db = firebase.database();
+
+      db.ref('/voices/all').once('value', function (snapshot) {
+        var obj = snapshot.val();
+        console.log(obj);
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+</head>
+  <body>
+    <h1>テストページ最初の文字列2</h1>
+  </body>
+</html>
