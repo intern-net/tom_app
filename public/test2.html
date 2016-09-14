@@ -5,22 +5,34 @@
     <title>ここはテスト用2</title>
     <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
     <script>
-      // Initialize Firebase
-      var config = {
-        authDomain: "favst-dojo.firebaseapp.com",
-        databaseURL: "https://favst-dojo.firebaseio.com",
-        storageBucket: "favst-dojo.appspot.com",
-        messagingSenderId: "732756833582"
-      };
-      firebase.initializeApp(config);
 
-      // ここから本処理
-      var db = firebase.database();
+    firebase.initializeApp({
+      authDomain: 'favst-dojo.firebaseapp.com',
+      databaseURL: 'https://favst-dojo.firebaseio.com'
+    });
 
-      db.ref('/voices/all').once('value', function (snapshot) {
-        var obj = snapshot.val();
-        console.log(obj);
+    var db = firebase.database();
+    var storage = firebase.storage();
+
+    console.log('Genres');
+    db.ref('/voices').once('value', function(snapshot) {
+      console.log(snapshot.val());
+      console.log('=====================================================================');
+    });
+
+    db.ref('/voices/all').once('value', function (snapshot) {
+      var obj = snapshot.val();
+      Object.keys(obj).forEach(function (id) {
+          var val = obj[id];
+          storage.refFromURL(val.voiceURL).getDownloadURL().then(function (voiceURL) {
+          console.log('ID:', id);
+          console.log('Title:', val.title);
+          console.log('LinkURL:', val.linkURL);
+              console.log('VoiceURL:', voiceURL);
+              console.log('=====================================================================');
+          });
       });
+    });
     </script>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 </head>
